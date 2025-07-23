@@ -1,0 +1,67 @@
+---
+title: "Como criar um blog com MDX e Next.js"
+date: "2025-01-20"
+excerpt: "Tutorial completo sobre como implementar um sistema de blog usando MDX no Next.js 14"
+tags: ["Next.js", "MDX", "Blog", "Tutorial"]
+---
+
+# Como criar um blog com MDX e Next.js
+
+MDX é uma extensão do Markdown que permite usar componentes JSX diretamente nos seus arquivos de conteúdo. É perfeito para criar blogs técnicos com exemplos interativos.
+
+## Por que usar MDX?
+
+- **Flexibilidade**: Combine Markdown com React components
+- **Interatividade**: Adicione componentes dinâmicos ao conteúdo
+- **Type Safety**: Com TypeScript, você tem autocompletar e verificação de tipos
+
+## Configuração Básica
+
+Primeiro, instale as dependências necessárias:
+
+```bash
+npm install @next/mdx @mdx-js/loader @mdx-js/react
+```
+
+### Configuração do Next.js
+
+No seu next.config.js:
+
+```javascript
+const withMDX = require("@next/mdx")({
+  extension: /\.mdx?$/,
+});
+
+module.exports = withMDX({
+  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+});
+```
+
+## Criando Componentes Customizados
+
+Você pode criar componentes específicos para o seu blog:
+
+```typescript
+const CustomButton = ({ children, onClick }) => (
+  <button
+    className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
+    onClick={onClick}
+  >
+    {children}
+  </button>
+);
+```
+
+E usar diretamente no MDX:
+
+```javascript
+<CustomButton onClick={() => alert("Funcionou!")}>Clique aqui</CustomButton>
+```
+## Vantagens do MDX
+
+1. **Sintaxe familiar**: Se você conhece Markdown, já sabe 90% do MDX
+2. **Componentes reutilizáveis**: Crie uma biblioteca de componentes para blogs
+3. **SEO friendly**: Renderização estática com Next.js
+4. **Performance**: Otimizações automáticas do Next.js
+
+MDX é definitivamente a escolha certa para blogs técnicos modernos!
