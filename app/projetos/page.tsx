@@ -1,4 +1,4 @@
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink, Code2 } from "lucide-react";
 import Image from "next/image";
 
 export default function Projetos() {
@@ -6,10 +6,9 @@ export default function Projetos() {
     {
       id: 1,
       title: "Suporte Técnico",
-      description:
-        "Site com links rápidos para suporte externo da equipe do suporte técnico.",
+      description: "Hub de links rápidos e utilitários para otimização de atendimento remoto.",
       longDescription:
-        "Um site simples criado utilizando HTML, CSS e JavaScript, com o objetivo de auxiliar a equipe de suporte técnico na realização de atendimentos remotos, reunindo arquivos e links em um só lugar.",
+        "Desenvolvido para centralizar recursos da equipe de suporte, reduzindo o tempo de resposta em atendimentos críticos através de uma interface intuitiva e acesso rápido a ferramentas.",
       tech: ["HTML", "CSS", "JavaScript"],
       github: "https://github.com/andreflara/SuporteUnimed",
       demo: "https://suporteunimed.vercel.app/",
@@ -18,96 +17,97 @@ export default function Projetos() {
   ];
 
   return (
-    <div className="min-h-screen space-y-12 pt-12 pb-60 px-4 sm:px-6 lg:px-8">
-      {/* Título e introdução */}
-      <div className="space-y-4 text-center sm:text-left">
-        <h1 className="text-3xl sm:text-4xl font-bold text-zinc-100">
-          Projetos
-        </h1>
-        <p className="text-base sm:text-xl text-zinc-400 leading-relaxed">
-          Aqui você encontra uma seleção dos meus projetos mais recentes — desenvolvidos com foco em experiência do usuário e boas práticas de desenvolvimento.
-        </p>
-      </div>
+    <div className="min-h-screen text-zinc-400 font-sans selection:bg-blue-500/20">
+      <main className="max-w-4xl px-6 py-16 md:py-24">
+        
+        {/* --- HEADER --- */}
+        <header className="space-y-4 mb-16">
+          <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase text-blue-500">
+            <Code2 className="w-3 h-3" /> Portfólio de Trabalho
+          </div>
+          <h1 className="text-3xl md:text-4xl font-bold text-zinc-100 tracking-tight">
+            Projetos
+          </h1>
+          <p className="text-base leading-relaxed max-w-2xl">
+            Uma seleção de ferramentas e aplicações que desenvolvi, focando em 
+            <span className="text-zinc-200"> utilidade real</span> e interface limpa.
+          </p>
+        </header>
 
-      {/* Grade de projetos */}
-      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-        {projetos.map((projeto) => (
-          <div
-            key={projeto.id}
-            className="group bg-zinc-900/50 border border-zinc-800 rounded-lg overflow-hidden hover:border-zinc-700 transition-colors flex flex-col"
-          >
-            <div className="h-full w-full rounded-xl bg-black border border-gray-700 shadow-lg hover:shadow-2xl transition-shadow duration-300 relative overflow-hidden">
-              {/* Imagem do projeto */}
-              <div className="relative h-48 sm:h-56 bg-zinc-800">
+        {/* --- GRID DE PROJETOS --- */}
+        <div className="grid gap-8 grid-cols-1 md:grid-cols-2">
+          {projetos.map((projeto) => (
+            <div
+              key={projeto.id}
+              className="group flex flex-col bg-zinc-900/20 border border-zinc-800/50 rounded-2xl overflow-hidden hover:border-blue-500/30 transition-all duration-300"
+            >
+              {/* Preview da Imagem */}
+              <div className="relative aspect-video bg-zinc-900 overflow-hidden border-b border-zinc-800/50">
                 {projeto.image ? (
                   <Image
                     src={projeto.image}
-                    alt={`Imagem do projeto ${projeto.title}`}
-                    width={400}
-                    height={200}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    alt={projeto.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-zinc-500 text-sm">
-                    Sem imagem disponível
+                  <div className="w-full h-full flex items-center justify-center text-xs font-mono text-zinc-600">
+                    NO_PREVIEW_AVAILABLE
                   </div>
                 )}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#09090b] via-transparent to-transparent opacity-60" />
               </div>
 
-              {/* Conteúdo do projeto */}
-              <div className="p-4 sm:p-6 flex flex-col justify-between">
-                {/* Título */}
-                <div className="flex items-start justify-between mb-1">
-                  <h2 className="text-lg sm:text-xl font-semibold text-zinc-100 group-hover:text-blue-400 transition-colors">
+              {/* Conteúdo */}
+              <div className="p-6 flex flex-col flex-grow space-y-4">
+                <div className="space-y-2">
+                  <h2 className="text-lg font-bold text-zinc-100 group-hover:text-blue-500 transition-colors">
                     {projeto.title}
                   </h2>
+                  <p className="text-sm leading-relaxed text-zinc-500 group-hover:text-zinc-400 transition-colors">
+                    {projeto.longDescription}
+                  </p>
                 </div>
 
-                {/* Descrição */}
-                <p className="text-zinc-400 mb-2 line-clamp-3 text-sm sm:text-base">
-                  {projeto.longDescription}
-                </p>
-
                 {/* Tecnologias */}
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2">
                   {projeto.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-1 bg-zinc-800 text-zinc-300 text-xs rounded"
+                      className="text-[10px] font-mono text-zinc-400 bg-zinc-800/30 border border-zinc-800 px-2 py-0.5 rounded"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                {/* Links */}
-                <div className="flex flex-col sm:flex-row sm:justify-between gap-2 mt-auto pt-2">
+                {/* Links - Estilo Minimalista */}
+                <div className="flex items-center gap-6 pt-2 mt-auto">
                   <a
                     href={projeto.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center text-zinc-400 hover:text-zinc-100 transition-colors text-sm font-medium"
+                    className="flex items-center gap-2 text-xs font-bold text-zinc-400 hover:text-white transition-colors"
                   >
-                    <Github className="w-4 h-4 mr-2" />
-                    Código-fonte
+                    <Github className="w-4 h-4" /> Code
                   </a>
                   {projeto.demo && (
                     <a
                       href={projeto.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center text-zinc-400 hover:text-zinc-100 transition-colors text-sm font-medium"
+                      className="flex items-center gap-2 text-xs font-bold text-zinc-400 hover:text-blue-500 transition-colors"
                     >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Ver Demo
+                      <ExternalLink className="w-4 h-4" /> Live Demo
                     </a>
                   )}
                 </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+
+      </main>
     </div>
   );
 }

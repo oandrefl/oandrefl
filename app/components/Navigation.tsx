@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, X } from "lucide-react"; // Ícones
+import { Menu, X, Terminal } from "lucide-react";
 
 export function Navigation() {
   const pathname = usePathname();
@@ -14,62 +14,63 @@ export function Navigation() {
     { href: "/about", label: "Sobre" },
     { href: "/projetos", label: "Projetos" },
     { href: "/blog", label: "Blog" },
-    { href: "/contact", label: "Contato" },
+    { href: "/contato", label: "Contato" },
   ];
 
   return (
-    <nav className="border-b border-zinc-900 bg-zinc-950/80 backdrop-blur-sm sticky top-0 z-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="fixed top-0 w-full z-50 border-b border-zinc-900/50 bg-[#050505]/70 backdrop-blur-md">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Logo Estilizada */}
           <Link
             href="/"
-            className="font-semibold text-lg text-zinc-100 hover:text-blue-400 transition-colors"
+            className="flex items-center gap-2 font-bold text-zinc-100 hover:text-blue-500 transition-colors group"
           >
-            dev.
+            <Terminal className="w-4 h-4 text-blue-500 group-hover:scale-110 transition-transform" />
+            <span className="tracking-tight text-sm">andre.fl</span>
           </Link>
 
-          {/* Ícone hamburguer - visível apenas em telas pequenas */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="text-zinc-400 hover:text-zinc-100 transition-colors"
-              aria-label="Abrir menu"
-            >
-              {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-
-          {/* Links em tela grande */}
-          <div className="hidden md:flex items-center space-x-6">
+          {/* Links Desktop - Usando Font Mono para consistência */}
+          <div className="hidden md:flex items-center gap-8">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm transition-colors ${
+                className={`text-[11px] font-mono uppercase tracking-[0.2em] transition-all duration-300 ${
                   pathname === link.href
-                    ? "text-blue-400"
-                    : "text-zinc-400 hover:text-zinc-100"
+                    ? "text-blue-500"
+                    : "text-zinc-500 hover:text-zinc-100"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
           </div>
+
+          {/* Mobile Toggle */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="p-2 text-zinc-400 hover:text-zinc-100 transition-colors"
+              aria-label="Abrir menu"
+            >
+              {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
         </div>
 
-        {/* Menu responsivo dropdown */}
+        {/* Menu Mobile Dropdown */}
         {menuOpen && (
-          <div className="md:hidden flex flex-col space-y-4 py-4">
+          <div className="md:hidden absolute left-0 w-full bg-[#050505] border-b border-zinc-900 px-6 py-8 flex flex-col gap-6 animate-in slide-in-from-top-2 duration-300">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={() => setMenuOpen(false)} // Fecha menu ao clicar
-                className={`block text-sm transition-colors ${
+                onClick={() => setMenuOpen(false)}
+                className={`text-xs font-mono uppercase tracking-[0.2em] ${
                   pathname === link.href
-                    ? "text-blue-400"
-                    : "text-zinc-400 hover:text-zinc-100"
+                    ? "text-blue-500"
+                    : "text-zinc-500"
                 }`}
               >
                 {link.label}

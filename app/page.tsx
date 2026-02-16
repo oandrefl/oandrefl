@@ -1,125 +1,64 @@
-import { Github, ExternalLink, ArrowRight } from 'lucide-react'
+import { Github, ExternalLink, ArrowRight, Sparkles } from 'lucide-react'
 import Link from 'next/link'
 
 export default function Home() {
   return (
-  <div className="flex min-h-[90vh]  items-center ">
-      {/* Hero Section */}
-      <section className="space-y-6">
+    <div className="min-h-screen justify-between selection:bg-blue-500/20">
+      {/* --- HERO SECTION --- */}
+      <div className="max-w-5xl mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+        
         <div className="space-y-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-zinc-100">
-            Andre Fernando
+          {/* Badge de Status Sutil */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-[11px] font-mono tracking-wider text-zinc-500 uppercase">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+            </span>
+            Disponível para novos desafios
+          </div>
+
+          <h1 className="text-5xl md:text-7xl font-bold text-zinc-100 tracking-tight">
+            Andre <span className="text-zinc-500">Fernando</span>
           </h1>
-          <p className="text-xl text-zinc-400 leading-relaxed max-w-3xl">
-            Entusiasta em tecnologia, em aprendizado no mundo da programacao
+          
+          <p className="text-lg md:text-xl text-zinc-400 leading-relaxed max-w-2xl">
+            Desenvolvedor Full-Stack em Curitiba. 
+            Construindo o futuro da web através de <span className="text-zinc-200">interfaces minimalistas</span> e <span className="text-zinc-200">código eficiente</span>.
           </p>
         </div>
         
-        <div className="flex flex-wrap gap-4">
+        {/* CTAs Dinâmicos */}
+        <div className="flex flex-wrap gap-5 items-center">
           <Link
             href="/projetos"
-            className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-medium"
+            className="group inline-flex items-center px-8 py-4 bg-zinc-100 hover:bg-blue-600 text-zinc-950 hover:text-white rounded-2xl transition-all font-bold text-sm shadow-lg shadow-white/5 active:scale-95"
           >
             Ver Projetos
-            <ArrowRight className="ml-2 w-4 h-4" />
+            <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
+          
           <Link
             href="/blog"
-            className="inline-flex items-center px-6 py-3 border border-zinc-700 hover:border-zinc-600 text-zinc-300 hover:text-zinc-100 rounded-lg transition-colors font-medium"
+            className="inline-flex items-center px-8 py-4 border border-zinc-800 hover:border-zinc-700 text-zinc-400 hover:text-zinc-100 rounded-2xl transition-all font-bold text-sm active:scale-95"
           >
             Ler Blog
           </Link>
-        </div>
-      </section>
 
-      {/* Skills Section */}
-      {/* <section className="space-y-8">
-        <h2 className="text-2xl font-semibold text-zinc-100">Tecnologias</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {['React', 'Next.js', 'TypeScript', 'Node.js', 'Python', 'PostgreSQL', 'Docker', 'AWS'].map((tech) => (
-            <div
-              key={tech}
-              className="p-4 bg-zinc-900/50 border border-zinc-800 rounded-lg text-center text-zinc-300 hover:border-zinc-700 transition-colors"
-            >
-              {tech}
-            </div>
-          ))}
-        </div>
-      </section> */}
+          <div className="h-px w-12 bg-zinc-800 hidden md:block"></div>
 
-      {/* Featured Projects */}
-      {/* <section className="space-y-8">
-        <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-semibold text-zinc-100">Projetos em Destaque</h2>
-          <Link
-            href="/projetos"
-            className="text-blue-400 hover:text-blue-300 transition-colors text-sm font-medium"
-          >
-            Ver todos →
-          </Link>
-        </div>
-        
-        <div className="grid md:grid-cols-2 gap-6">
-          {[
-            {
-              title: 'Projeto Incrível',
-              description: 'Uma aplicação web moderna construída com Next.js e TypeScript.',
-              tech: ['Next.js', 'TypeScript', 'Tailwind'],
-              github: 'https://github.com/seuusuario/projeto',
-              demo: 'https://projeto.vercel.app'
-            },
-            {
-              title: 'API Robusta',
-              description: 'API RESTful construída com Node.js e PostgreSQL.',
-              tech: ['Node.js', 'PostgreSQL', 'Docker'],
-              github: 'https://github.com/seuusuario/api',
-              demo: null
-            }
-          ].map((project) => (
-            <div
-              key={project.title}
-              className="p-6 bg-zinc-900/50 border border-zinc-800 rounded-lg hover:border-zinc-700 transition-colors"
+          <div className="flex gap-5">
+            <a 
+              href="https://github.com/seuusuario" 
+              target="_blank" 
+              className="text-zinc-500 hover:text-white transition-colors"
+              title="GitHub"
             >
-              <h3 className="text-lg font-semibold text-zinc-100 mb-2">{project.title}</h3>
-              <p className="text-zinc-400 mb-4">{project.description}</p>
-              
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-2 py-1 bg-zinc-800 text-zinc-300 text-xs rounded"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              
-              <div className="flex gap-3">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center text-zinc-400 hover:text-zinc-100 transition-colors text-sm"
-                >
-                  <Github className="w-4 h-4 mr-1" />
-                  Código
-                </a>
-                {project.demo && (
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-zinc-400 hover:text-zinc-100 transition-colors text-sm"
-                  >
-                    <ExternalLink className="w-4 h-4 mr-1" />
-                    Demo
-                  </a>
-                )}
-              </div>
-            </div>
-          ))}
+              <Github className="w-5 h-5" />
+            </a>
+            {/* Você pode adicionar LinkedIn aqui também */}
+          </div>
         </div>
-      </section> */}
+      </div>
     </div>
   )
 }

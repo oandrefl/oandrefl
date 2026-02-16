@@ -2,114 +2,115 @@
 import {
   Github,
   Linkedin,
-  Twitter,
   Mail,
-  Heart,
-  Coffee,
   ArrowUp,
+  Terminal,
 } from "lucide-react";
+import Link from "next/link";
 
 const socialLinks = [
   {
     href: "https://github.com/seuusuario",
     icon: Github,
     label: "GitHub",
-    color: "hover:text-gray-300 hover:bg-gray-800/50",
   },
   {
     href: "https://linkedin.com/in/seuusuario",
     icon: Linkedin,
     label: "LinkedIn",
-    color: "hover:text-blue-400 hover:bg-blue-500/10",
-  },
-  {
-    href: "https://twitter.com/seuusuario",
-    icon: Twitter,
-    label: "Twitter",
-    color: "hover:text-sky-400 hover:bg-sky-500/10",
   },
   {
     href: "mailto:seu@email.com",
     icon: Mail,
     label: "Email",
-    color: "hover:text-purple-400 hover:bg-purple-500/10",
   },
 ];
 
 const quickLinks = [
-  { href: "/", label: "Home" },
+  { href: "/", label: "Início" },
   { href: "/projetos", label: "Projetos" },
+  { href: "/blog", label: "Blog" },
   { href: "/contato", label: "Contato" },
 ];
-
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <footer className="relative bg-zinc-950 border-t border-zinc-800 py-8">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Main Footer Content */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
-          {/* Social Links */}
-          <div className="flex justify-center md:justify-start gap-4">
-            {socialLinks.map((social, index) => {
-              const Icon = social.icon;
-              return (
-                <a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`group p-2 rounded-full transition-all duration-300 ${social.color}`}
-                  aria-label={social.label}
-                >
-                  <Icon className="w-5 h-5 text-zinc-400 group-hover:scale-110 transition-transform" />
-                </a>
-              );
-            })}
+    <footer className="w-full border-t border-zinc-900/50 bg-[#050505] py-12 selection:bg-blue-500/20">
+      <div className="max-w-4xl mx-auto px-6">
+        
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
+          
+          {/* Branding sutil */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-2 text-zinc-100 font-bold">
+              <Terminal className="w-4 h-4 text-blue-500" />
+              <span>andre.fl</span>
+            </div>
+            <p className="text-xs font-mono tracking-tight text-zinc-500 max-w-[200px]">
+              Desenvolvendo experiências digitais de Curitiba para o mundo.
+            </p>
           </div>
 
-          {/* Quick Links */}
-          <nav>
-            <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-zinc-400 text-sm">
-              {quickLinks.map((link, index) => (
-                <li key={index}>
+          {/* Navegação e Social */}
+          <div className="flex flex-col sm:flex-row gap-12 md:gap-20">
+            {/* Links Rápidos */}
+            <div className="space-y-4">
+              <h4 className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-600">Navegação</h4>
+              <ul className="grid grid-cols-2 gap-x-8 gap-y-2">
+                {quickLinks.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-zinc-500 hover:text-blue-500 transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Social */}
+            <div className="space-y-4">
+              <h4 className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-600">Social</h4>
+              <div className="flex gap-4">
+                {socialLinks.map((social) => (
                   <a
-                    href={link.href}
-                    className="hover:text-white transition-colors duration-200"
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-zinc-500 hover:text-white transition-colors"
+                    aria-label={social.label}
                   >
-                    {link.label}
+                    <social.icon className="w-5 h-5" />
                   </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-zinc-800 mb-6"></div>
-
-        {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-zinc-500">
-          <div className="flex items-center gap-2">
-            <span>© {currentYear} oandrefl.</span>
-            <Coffee className="w-4 h-4 text-gray-500" />
+        {/* Linha Inferior */}
+        <div className="mt-16 pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">
+            © {currentYear} Andre Fernando — All rights reserved
           </div>
 
-          {/* Back to Top */}
           <button
             onClick={scrollToTop}
-            className="group flex items-center gap-2 px-3 py-1.5 bg-zinc-900/50 border border-zinc-800 rounded-lg hover:border-blue-500/30 hover:bg-blue-500/5 transition-all duration-300"
-            aria-label="Voltar ao topo"
+            className="group flex items-center gap-2 text-zinc-500 hover:text-blue-500 transition-all duration-300"
           >
-            <ArrowUp className="w-4 h-4 text-zinc-400 group-hover:text-blue-400 transition-colors" />
-            <span className="text-xs text-zinc-500 group-hover:text-blue-400 transition-colors">
-              Topo
-            </span>
+            <span className="text-[10px] font-mono uppercase tracking-widest">Back to top</span>
+            <div className="p-2 rounded-full bg-zinc-900 border border-zinc-800 group-hover:border-blue-500/50 transition-colors">
+              <ArrowUp className="w-3 h-3 transition-transform group-hover:-translate-y-0.5" />
+            </div>
           </button>
         </div>
       </div>
