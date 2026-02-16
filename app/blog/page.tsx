@@ -3,7 +3,7 @@ import { getSortedPostsData } from "@/app/lib/mdx";
 import { BookOpen, Calendar, ChevronRight } from "lucide-react";
 
 export default async function Blog() {
-  const posts = getSortedPostsData();
+  const posts = await getSortedPostsData();
 
   return (
     <div className="min-h-screen text-zinc-400 font-sans selection:bg-blue-500/20">

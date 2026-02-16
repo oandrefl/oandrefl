@@ -1,11 +1,20 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
-import { getPostData } from "@/app/lib/mdx";
+import { getPostData, getSortedPostsData } from "@/app/lib/mdx";
+
+export async function generateStaticParams() {
+  const posts = await getSortedPostsData();
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
 
 // 1. Atualizamos a interface para refletir que params é uma Promise
 interface BlogPostProps {
   params: Promise<{ slug: string }>;
+
+  
 }
 
 export default async function BlogPost({ params }: BlogPostProps) {
