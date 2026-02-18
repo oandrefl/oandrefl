@@ -10,7 +10,7 @@ export default function Projetos() {
       longDescription:
         "Desenvolvido para centralizar recursos da equipe de suporte, reduzindo o tempo de resposta em atendimentos críticos através de uma interface intuitiva e acesso rápido a ferramentas.",
       tech: ["HTML", "CSS", "JavaScript"],
-      github: "https://github.com/andreflara/SuporteUnimed",
+      github: "https://github.com/andreflara/SuporteUnimed", 
       demo: "https://suporteunimed.vercel.app/",
       image: "/SuporteTecnico.png",
     },
