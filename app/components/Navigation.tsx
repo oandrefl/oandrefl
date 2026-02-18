@@ -19,7 +19,7 @@ export function Navigation() {
 
   return (
     <nav className="fixed top-0 w-full z-50 border-b border-zinc-900/50 bg-[#050505]/70 backdrop-blur-md">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between h-16">
           {/* Logo Estilizada */}
           <Link

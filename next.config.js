@@ -9,9 +9,12 @@ const withMDX = require('@next/mdx')({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  
+  // 1. O 'turbopack' deve ficar aqui, fora do experimental
+  turbopack: {}, 
+
   experimental: {
-    // mdxRs: true, // Mantemos desativado por enquanto para evitar erros de React antigo
-    turbopack: {}, // <--- ADICIONE ESTA LINHA PARA RESOLVER O ERRO DE BUILD
+    // mdxRs: true, // Deixe desativado para evitar conflitos com React 19
   },
 }
 

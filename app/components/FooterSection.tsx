@@ -42,7 +42,7 @@ export default function Footer() {
 
   return (
     <footer className="w-full border-t border-zinc-900/50 bg-[#050505] py-12 selection:bg-blue-500/20">
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto">
         
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
           
