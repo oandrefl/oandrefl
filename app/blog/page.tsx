@@ -6,9 +6,9 @@ export default async function Blog() {
   const posts = await getSortedPostsData();
 
   return (
-    <div className="min-h-screen text-zinc-400 font-sans selection:bg-blue-500/20">
-      <main className="max-w-4xl px-6 py-16 md:py-24">
-        
+    <div className="min-h-screen text-zinc-400 font-sans selection:bg-blue-500/20 py-8 md:py-16">
+      {/* max-w-4xl para manter a margem idêntica à Home e ao About */}
+      <main className="max-w-4xl w-full mx-72 px-6 animate-in fade-in slide-in-from-bottom-4 duration-1000">
         {/* --- HEADER --- */}
         <header className="space-y-4 mb-20">
           <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase text-blue-500">
@@ -18,8 +18,8 @@ export default async function Blog() {
             Blog
           </h1>
           <p className="text-base leading-relaxed max-w-xl">
-            Anotações sobre desenvolvimento full-stack, carreira em TI e 
-            as tecnologias que venho explorando no dia a dia.
+            Anotações sobre desenvolvimento full-stack, carreira em TI e as
+            tecnologias que venho explorando no dia a dia.
           </p>
         </header>
 
@@ -27,7 +27,9 @@ export default async function Blog() {
         <div className="space-y-12 border-l border-zinc-800/50 ml-1 pl-6 md:pl-8">
           {posts.length === 0 ? (
             <div className="py-8">
-              <p className="text-sm text-zinc-500 italic">O blog ainda está sendo preparado. Volte em breve.</p>
+              <p className="text-sm text-zinc-500 italic">
+                O blog ainda está sendo preparado. Volte em breve.
+              </p>
             </div>
           ) : (
             posts.map((post) => (
