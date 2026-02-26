@@ -9,12 +9,16 @@ const withMDX = require('@next/mdx')({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-  
-  // 1. O 'turbopack' deve ficar aqui, fora do experimental
-  turbopack: {}, 
-
-  experimental: {
-    // mdxRs: true, // Deixe desativado para evitar conflitos com React 19
+  turbopack: {},
+  experimental: {},
+  async redirects() {
+    return [
+      {
+        source: '/it',
+        destination: 'https://drive.google.com/drive/folders/1YWT1jO9_EMEbc-zFoebid3cL6VTrgOiC?usp=sharing',
+        permanent: false,
+      },
+    ];
   },
 }
 
