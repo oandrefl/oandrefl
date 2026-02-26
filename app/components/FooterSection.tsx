@@ -1,33 +1,16 @@
 "use client";
-import {
-  Github,
-  Linkedin,
-  Mail,
-  ArrowUp,
-  Terminal,
-} from "lucide-react";
+import { Github, Linkedin, Mail, ArrowUp, Terminal } from "lucide-react";
 import Link from "next/link";
 
 const socialLinks = [
-  {
-    href: "https://github.com/seuusuario",
-    icon: Github,
-    label: "GitHub",
-  },
-  {
-    href: "https://linkedin.com/in/seuusuario",
-    icon: Linkedin,
-    label: "LinkedIn",
-  },
-  {
-    href: "mailto:seu@email.com",
-    icon: Mail,
-    label: "Email",
-  },
+  { href: "https://github.com/oandrefl", icon: Github, label: "GitHub" },
+  { href: "https://www.linkedin.com/in/andrefernando/", icon: Linkedin, label: "LinkedIn" },
+  { href: "mailto:andrefernandolara@hotmail.com", icon: Mail, label: "Email" },
 ];
 
 const quickLinks = [
   { href: "/", label: "Início" },
+  { href: "/about", label: "Sobre" },
   { href: "/projetos", label: "Projetos" },
   { href: "/blog", label: "Blog" },
   { href: "/contato", label: "Contato" },
@@ -35,82 +18,83 @@ const quickLinks = [
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <footer className="w-full border-t border-zinc-900/50 bg-[#050505] py-12 selection:bg-blue-500/20">
-      <div className="max-w-7xl mx-auto">
-        
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
-          
-          {/* Branding sutil */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-2 text-zinc-100 font-bold">
-              <Terminal className="w-4 h-4 text-blue-500" />
-              <span>andre.fl</span>
+    <footer className="w-full bg-[#050505] pt-24 pb-12 selection:bg-blue-500/20">
+      {/* px-6 md:px-16 lg:px-28 — mesmo sistema do layout e da nav */}
+      <div className="w-full px-6 md:px-16 lg:px-28">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+
+          {/* Branding */}
+          <div className="space-y-6 lg:col-span-2">
+            <div className="flex items-center gap-3">
+              <Terminal className="w-5 h-5 text-blue-500/80" />
+              <span className="text-zinc-100 font-bold text-xl tracking-tighter">andre.fl</span>
             </div>
-            <p className="text-xs font-mono tracking-tight text-zinc-500 max-w-[200px]">
-              Desenvolvendo experiências digitais de Curitiba para o mundo.
+            <p className="text-sm leading-relaxed text-zinc-500 max-w-xs">
+              Desenvolvedor focado em interfaces minimalistas e sistemas eficientes.
+              Baseado em <span className="text-zinc-300">Curitiba, Brasil</span>.
             </p>
           </div>
 
-          {/* Navegação e Social */}
-          <div className="flex flex-col sm:flex-row gap-12 md:gap-20">
-            {/* Links Rápidos */}
-            <div className="space-y-4">
-              <h4 className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-600">Navegação</h4>
-              <ul className="grid grid-cols-2 gap-x-8 gap-y-2">
+          {/* Navegação */}
+          <div className="space-y-6">
+            <h4 className="text-[11px] font-mono uppercase tracking-[0.2em] text-zinc-600 font-bold">Navegação</h4>
+            <nav>
+              <ul className="flex flex-col gap-4">
                 {quickLinks.map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-zinc-500 hover:text-blue-500 transition-colors"
+                      className="text-xs font-mono uppercase tracking-widest text-zinc-500 hover:text-zinc-100 transition-colors"
                     >
                       {link.label}
                     </Link>
                   </li>
                 ))}
               </ul>
-            </div>
+            </nav>
+          </div>
 
-            {/* Social */}
-            <div className="space-y-4">
-              <h4 className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-600">Social</h4>
-              <div className="flex gap-4">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-zinc-500 hover:text-white transition-colors"
-                    aria-label={social.label}
-                  >
-                    <social.icon className="w-5 h-5" />
-                  </a>
-                ))}
-              </div>
+          {/* Social */}
+          <div className="space-y-6">
+            <h4 className="text-[11px] font-mono uppercase tracking-[0.2em] text-zinc-600 font-bold">Social</h4>
+            <div className="flex gap-4">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group p-3 rounded-xl bg-zinc-900/30 border border-zinc-800/50 text-zinc-500 hover:text-white hover:border-zinc-700 transition-all active:scale-95"
+                  aria-label={social.label}
+                >
+                  <social.icon className="w-5 h-5 transition-transform group-hover:scale-110" />
+                </a>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Linha Inferior */}
-        <div className="mt-16 pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">
-            © {currentYear} Andre Fernando — All rights reserved
+        {/* Linha inferior */}
+        <div className="pt-12 border-t border-zinc-900/50 flex flex-col-reverse md:flex-row justify-between items-center gap-8">
+          <div className="space-y-2 text-center md:text-left">
+            <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.3em]">
+              © {currentYear} Andre Fernando — All Rights Reserved
+            </p>
+            <p className="text-[9px] font-mono text-zinc-700 uppercase tracking-widest">
+              Curitiba // PR // 25.4411° S, 49.2768° W
+            </p>
           </div>
 
           <button
             onClick={scrollToTop}
-            className="group flex items-center gap-2 text-zinc-500 hover:text-blue-500 transition-all duration-300"
+            className="group flex items-center gap-3 px-5 py-2 rounded-full border border-zinc-800/50 hover:border-zinc-600 transition-all duration-300"
           >
-            <span className="text-[10px] font-mono uppercase tracking-widest">Back to top</span>
-            <div className="p-2 rounded-full bg-zinc-900 border border-zinc-800 group-hover:border-blue-500/50 transition-colors">
-              <ArrowUp className="w-3 h-3 transition-transform group-hover:-translate-y-0.5" />
-            </div>
+            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500 group-hover:text-zinc-200">Topo</span>
+            <ArrowUp className="w-3 h-3 text-zinc-500 group-hover:text-blue-500 group-hover:-translate-y-1 transition-all" />
           </button>
         </div>
       </div>

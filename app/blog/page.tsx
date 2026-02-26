@@ -6,24 +6,31 @@ export default async function Blog() {
   const posts = await getSortedPostsData();
 
   return (
-    <div className="min-h-screen text-zinc-400 font-sans selection:bg-blue-500/20 py-8 md:py-16">
-      {/* max-w-4xl para manter a margem idêntica à Home e ao About */}
-      <main className="max-w-4xl w-full mx-72 px-6 animate-in fade-in slide-in-from-bottom-4 duration-1000">
-        {/* --- HEADER --- */}
-        <header className="space-y-4 mb-20">
-          <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase text-blue-500">
-            <BookOpen className="w-3 h-3" /> Escritos & Ideias
+    /*
+      Páginas alinhadas à esquerda NÃO usam mx-auto.
+      A margem esquerda vem do px-6 md:px-16 lg:px-28 do layout.tsx.
+      max-w-4xl aqui só limita a largura de leitura, sem centralizar.
+    */
+    <div className="animate-in fade-in slide-in-from-bottom-4 duration-1000">
+      <main className="max-w-4xl space-y-20">
+
+        {/* HEADER — padrão de todas as páginas secundárias */}
+        <header className="space-y-4">
+          {/* Eyebrow */}
+          <div className="flex items-center gap-2 text-[11px] font-mono tracking-[0.2em] uppercase text-blue-500">
+            <BookOpen className="w-3.5 h-3.5" /> Escritos & Ideias
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-zinc-100 tracking-tight">
-            Blog
+          {/* H1 páginas — text-4xl md:text-5xl em todas as páginas secundárias */}
+          <h1 className="text-4xl md:text-5xl font-bold text-zinc-100 tracking-tight">
+            Blog<span className="text-zinc-600">.</span>
           </h1>
-          <p className="text-base leading-relaxed max-w-xl">
-            Anotações sobre desenvolvimento full-stack, carreira em TI e as
-            tecnologias que venho explorando no dia a dia.
+          <p className="text-base leading-relaxed text-zinc-400 max-w-xl">
+            Coisas que aprendi, erros que cometi e descobertas do dia a dia.
+            Sem pretensão — só anotações de alguém que está aprendendo em público.
           </p>
         </header>
 
-        {/* --- POSTS LIST --- */}
+        {/* POSTS LIST */}
         <div className="space-y-12 border-l border-zinc-800/50 ml-1 pl-6 md:pl-8">
           {posts.length === 0 ? (
             <div className="py-8">
@@ -34,11 +41,11 @@ export default async function Blog() {
           ) : (
             posts.map((post) => (
               <article key={post.slug} className="group relative">
-                {/* Indicador na linha do tempo */}
-                <div className="absolute -left-[31px] md:-left-[39px] top-1.5 w-3 h-3 rounded-full border-2 border-[#09090b] bg-zinc-800 group-hover:bg-blue-500 group-hover:shadow-[0_0_10px_rgba(59,130,246,0.4)] transition-all" />
+                {/* Timeline dot */}
+                <div className="absolute -left-[31px] md:-left-[39px] top-1.5 w-3 h-3 rounded-full border-2 border-[#050505] bg-zinc-800 group-hover:bg-blue-500 group-hover:shadow-[0_0_10px_rgba(59,130,246,0.4)] transition-all" />
 
                 <Link href={`/blog/${post.slug}`} className="block space-y-3">
-                  <div className="flex items-center gap-3 text-xs font-mono text-zinc-600">
+                  <div className="flex items-center gap-3 text-[11px] font-mono text-zinc-600">
                     <Calendar className="w-3 h-3" />
                     <time dateTime={post.date}>
                       {new Date(post.date).toLocaleDateString("pt-BR", {
@@ -50,7 +57,7 @@ export default async function Blog() {
                   </div>
 
                   <div className="space-y-2">
-                    <h2 className="text-lg font-bold text-zinc-200 group-hover:text-blue-500 transition-colors">
+                    <h2 className="text-lg font-bold text-zinc-200 group-hover:text-blue-500 transition-colors tracking-tight">
                       {post.title}
                     </h2>
                     <p className="text-sm leading-relaxed text-zinc-500 group-hover:text-zinc-400 transition-colors line-clamp-2">
@@ -58,7 +65,7 @@ export default async function Blog() {
                     </p>
                   </div>
 
-                  <div className="flex flex-wrap gap-2 pt-1">
+                  <div className="flex flex-wrap gap-2 pt-1 items-center">
                     {post.tags.map((tag) => (
                       <span
                         key={tag}
@@ -67,7 +74,7 @@ export default async function Blog() {
                         #{tag}
                       </span>
                     ))}
-                    <span className="text-[10px] font-bold text-blue-500 flex items-center opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                    <span className="text-[10px] font-bold text-blue-500 flex items-center opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0 duration-300">
                       Ler mais <ChevronRight className="w-3 h-3" />
                     </span>
                   </div>
@@ -76,6 +83,7 @@ export default async function Blog() {
             ))
           )}
         </div>
+
       </main>
     </div>
   );

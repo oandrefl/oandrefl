@@ -1,0 +1,96 @@
+---
+title: "Guia de Sobrevivência: Terminal (Linux/Windows) e Git"
+date: "2026-02-25"
+excerpt: "Uma cábula essencial com os principais comandos de Terminal e Git para aumentar a tua produtividade no dia a dia."
+tags: ["Linux", "Windows", "Git", "Terminal", "Produtividade"]
+---
+
+# Guia de Sobrevivência: Terminal e Git
+
+Dominar a linha de comandos é uma das competências mais valiosas para qualquer programador.  
+Seja para gerir ficheiros no sistema operativo ou controlar versões com Git, o terminal permite executar tarefas com rapidez, precisão e eficiência.
+
+Este guia reúne os comandos essenciais que vais usar praticamente todos os dias.
+
+---
+
+## 🚀 Por que dominar o Terminal?
+
+- **Produtividade** → Executa tarefas mais rápido do que com interface gráfica  
+- **Automação** → Cria scripts para tarefas repetitivas  
+- **Controlo total** → Acesso direto ao sistema  
+- **Base do Git e DevOps** → A maioria das ferramentas modernas usa CLI  
+
+---
+
+# 🖥️ Comandos de Terminal
+
+Apesar das diferenças entre sistemas operativos, os conceitos são semelhantes.
+
+---
+
+## 🐧 Linux
+
+```bash
+ls              # Lista ficheiros e diretórios
+cd pasta        # Navega entre diretórios
+pwd             # Mostra o diretório atual
+cp origem dest  # Copia ficheiros ou pastas
+mv origem dest  # Move ou renomeia
+rm ficheiro     # Remove ficheiro
+rm -rf pasta    # Remove diretório (⚠️ cuidado!)
+mkdir pasta     # Cria diretório
+cat ficheiro    # Mostra conteúdo do ficheiro
+grep texto file # Procura texto dentro de ficheiros
+chmod 755 file  # Altera permissões
+🪟 Windows (CMD)
+dir              # Lista ficheiros e pastas
+cd pasta         # Navega entre diretórios
+copy origem dest # Copia ficheiros
+move origem dest # Move ou renomeia
+del ficheiro     # Remove ficheiro
+mkdir pasta      # Cria pasta
+rmdir pasta      # Remove diretório vazio
+type ficheiro    # Mostra conteúdo
+findstr texto    # Procura texto
+cls              # Limpa o terminal
+ Principais Comandos Git
+
+Git é indispensável para controlo de versões e trabalho em equipa.
+
+⚙️ Configuração Inicial
+git init
+git clone <url>
+git config --global user.name "O Teu Nome"
+git config --global user.email "teu@email.com"
+🔁 Fluxo de Trabalho Diário
+git status
+git add .
+git commit -m "mensagem clara e descritiva"
+git push
+git pull
+🌿 Branches e Histórico
+git branch
+git checkout -b nova-branch
+git merge nome-da-branch
+git log
+⚠️ Boas Práticas
+
+Usa --help sempre que tiveres dúvidas
+
+Evita rm -rf sem teres 100% de certeza
+
+Cria branches para novas funcionalidades
+
+Faz commits pequenos e descritivos
+
+Atualiza o repositório antes de começar a trabalhar (git pull)
+
+🎯 Conclusão
+
+Não precisas memorizar tudo de uma vez.
+Com prática diária, os comandos tornam-se naturais e aumentam drasticamente a tua produtividade.
+
+Se utilizas Windows, considera instalar WSL2 ou Git Bash para teres acesso a um ambiente mais próximo do Linux.
+
+Dominar o Terminal e o Git é um verdadeiro multiplicador de eficiência para qualquer programador moderno 🚀
