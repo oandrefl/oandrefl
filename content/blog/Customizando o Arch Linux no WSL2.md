@@ -1,0 +1,134 @@
+---
+title: "Customizando o Arch Linux no WSL2"
+date: "2026-03-11"
+excerpt: "Como deixar o Arch Linux no WSL2 com terminal bonito, plugins úteis e integração completa com o Windows."
+tags: ["Arch Linux", "WSL2", "Zsh", "Starship", "Terminal", "Dev Environment"]
+---
+
+# Customizando o Arch Linux no WSL2
+
+Após instalar o Arch Linux no WSL2, é hora de deixar o ambiente mais produtivo e bonito. Este guia cobre terminal customizado, plugins de produtividade e integração com o Windows.
+
+## 1. Zsh + Oh My Zsh
+
+Substitui o bash pelo zsh com o framework Oh My Zsh:
+
+```bash
+sudo pacman -S zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+Confirma quando perguntar se quer trocar o shell padrão para zsh.
+
+## 2. Starship — prompt moderno
+
+Instala o Starship:
+
+```bash
+curl -sS https://starship.rs/install.sh | sh
+```
+
+Adiciona no final do `~/.zshrc`:
+
+```bash
+eval "$(starship init zsh)"
+```
+
+Cria a pasta de config e aplica o tema gruvbox-rainbow:
+
+```bash
+mkdir -p ~/.config
+starship preset gruvbox-rainbow -o ~/.config/starship.toml
+source ~/.zshrc
+```
+
+### Corrigindo timeout no WSL
+
+Adiciona no topo do `~/.config/starship.toml`:
+
+```toml
+scan_timeout = 10
+command_timeout = 1000
+```
+
+> Para ver outros temas disponíveis: https://starship.rs/presets/
+
+## 3. Plugins do Zsh
+
+### zsh-autosuggestions
+Sugere comandos enquanto você digita (aceita com `→`):
+
+```bash
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+### zsh-syntax-highlighting
+Destaca comandos válidos e inválidos em tempo real:
+
+```bash
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+
+Ativa os plugins no `~/.zshrc`, encontrando a linha `plugins=(git)` e trocando por:
+
+```
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+```
+
+Aplica:
+
+```bash
+source ~/.zshrc
+```
+
+## 4. yay — AUR Helper
+
+Permite instalar pacotes do AUR (Arch User Repository):
+
+```bash
+cd ~
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+```
+
+## 5. Integração com Windows
+
+### wslu
+Utilitários de integração WSL com Windows:
+
+```bash
+yay -S wslu
+```
+
+Habilita o interop caso esteja desabilitado:
+
+```bash
+echo ':WSLInterop:M::MZ::/init:PF' | sudo tee /proc/sys/fs/binfmt_misc/register
+```
+
+Testa abrindo uma URL no navegador do Windows:
+
+```bash
+wslview https://google.com
+```
+
+### VS Code integrado
+
+Com o VS Code instalado no Windows, abre qualquer projeto direto do terminal:
+
+```bash
+code .
+```
+
+O VS Code abre automaticamente conectado ao WSL via extensão Remote - WSL.
+
+## Resultado final
+
+- ✅ Zsh + Oh My Zsh
+- ✅ Starship com tema gruvbox-rainbow
+- ✅ zsh-autosuggestions
+- ✅ zsh-syntax-highlighting
+- ✅ yay (AUR helper)
+- ✅ wslu — integração com Windows
+- ✅ VS Code abrindo direto do terminal com `code .`
