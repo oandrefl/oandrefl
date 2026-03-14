@@ -3,6 +3,7 @@ import "./globals.css";
 import { Navigation } from "./components/Navigation";
 import Footer from "./components/FooterSection";
 
+
 export const viewport: Viewport = {
   themeColor: "#050505",
   width: "device-width",
@@ -17,11 +18,11 @@ export const metadata: Metadata = {
   description: "Desenvolvedor Full-Stack focado em criar experiências digitais eficientes e minimalistas.",
   keywords: ["Desenvolvedor", "Full-Stack", "Software Engineer", "Andre Fernando", "Portfolio"],
   authors: [{ name: "Andre Fernando" }],
-  icons: { icon: "/favicon.ico" },
+  icons: { icon: "/favicon.png" },
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://seu-dominio.com",
+    url: "https://oandrefl.vercel.app",
     siteName: "Andre Fernando Portfolio",
   },
 };

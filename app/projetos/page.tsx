@@ -29,7 +29,7 @@ const projetos = [
     tech: ["HTML", "CSS", "JavaScript"],
     github: "https://github.com/andreflara/SearchHub",
     demo: "https://searchhubs.vercel.app/",
-    image: "/SuporteTecnico.png",
+    image: "/searchhub.png",
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ const projetos = [
     tech: ["HTML", "CSS", "JavaScript"],
     github: "https://github.com/andreflara/LP-EBO",
     demo: "https://lp-ebo.vercel.app/",
-    image: "/SuporteTecnico.png",
+    image: "/ebosite.png",
   },
 ];
 
