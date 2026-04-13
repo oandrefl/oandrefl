@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Menu, X, Terminal } from "lucide-react";
+import { siteConfig } from "@/app/src/config/site";
 
 export function Navigation() {
   const pathname = usePathname();
@@ -26,14 +27,6 @@ export function Navigation() {
     document.body.style.overflow = menuOpen ? "hidden" : "unset";
   }, [menuOpen]);
 
-  const links = [
-    { href: "/", label: "Início" },
-    { href: "/about", label: "Sobre" },
-    { href: "/projetos", label: "Projetos" },
-    { href: "/blog", label: "Blog" },
-    { href: "/contato", label: "Contato" },
-  ];
-
   return (
     <nav
       className={`fixed top-0 w-full z-[100] transition-all duration-500 ${
@@ -43,17 +36,16 @@ export function Navigation() {
       }`}
       aria-label="Navegação Principal"
     >
-      {/* px-6 md:px-16 lg:px-28 — mesmo sistema do layout e do footer */}
       <div className="w-full px-6 md:px-16 lg:px-28 h-full flex items-center justify-between">
 
         <Link href="/" className="flex items-center gap-2 group">
           <Terminal className={`w-5 h-5 transition-colors duration-300 ${scrolled ? "text-blue-500" : "text-zinc-500"}`} />
-          <span className="text-zinc-100 font-medium tracking-tighter text-lg">andre.fl</span>
+          <span className="text-zinc-100 font-medium tracking-tighter text-lg">{siteConfig.shortName}</span>
         </Link>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center bg-zinc-900/40 p-1 rounded-full border border-zinc-800/50 backdrop-blur-sm">
-          {links.map((link) => {
+          {siteConfig.navigation.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link
@@ -89,7 +81,7 @@ export function Navigation() {
         }`}
       >
         <div className="flex flex-col h-full justify-center px-6 space-y-8">
-          {links.map((link, i) => (
+          {siteConfig.navigation.map((link, i) => (
             <Link
               key={link.href}
               href={link.href}

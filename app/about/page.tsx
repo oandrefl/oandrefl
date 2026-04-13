@@ -56,6 +56,7 @@ export default function About() {
                 src="/AndreFernando.png"
                 alt="Andre Fernando"
                 fill
+                priority
                 className="object-cover scale-100 hover:scale-100"
               />
               {/* Status badge sobre a foto */}

@@ -1,0 +1,40 @@
+{
+  "projetos": [
+    {
+      "id": 1,
+      "title": "Suporte Técnico",
+      "longDescription": "Hub de links e utilitários que criei pra centralizar os recursos do time de suporte. Cansou de ficar procurando o mesmo link toda hora — então botei tudo num lugar só.",
+      "tech": ["HTML", "CSS", "JavaScript"],
+      "github": "https://github.com/andreflara/SuporteUnimed",
+      "demo": "https://suporteunimed.vercel.app/",
+      "image": "/SuporteTecnico.png"
+    },
+    {
+      "id": 2,
+      "title": "dev.finance$",
+      "longDescription": "Controle financeiro pessoal — registre entradas e saídas e visualize o saldo em tempo real.",
+      "tech": ["HTML", "CSS", "JavaScript"],
+      "github": "https://github.com/andreflara/dev.finance",
+      "demo": "https://dev-finance-eta.vercel.app/",
+      "image": "/devfinance.png"
+    },
+    {
+      "id": 3,
+      "title": "Search Hub",
+      "longDescription": "Acesso rápido a links e sites úteis, organizados num único lugar.",
+      "tech": ["HTML", "CSS", "JavaScript"],
+      "github": "https://github.com/andreflara/SearchHub",
+      "demo": "https://searchhubs.vercel.app/",
+      "image": "/searchhub.png"
+    },
+    {
+      "id": 4,
+      "title": "Escola Bíblica de Obreiros",
+      "longDescription": "Landing page para a Escola Bíblica de Obreiros da Assembleia de Deus em Curitiba.",
+      "tech": ["HTML", "CSS", "JavaScript"],
+      "github": "https://github.com/andreflara/LP-EBO",
+      "demo": "https://lp-ebo.vercel.app/",
+      "image": "/ebosite.png"
+    }
+  ]
+}

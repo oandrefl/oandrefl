@@ -1,19 +1,12 @@
 "use client";
 import { Github, Linkedin, Mail, ArrowUp, Terminal } from "lucide-react";
 import Link from "next/link";
+import { siteConfig } from "@/app/src/config/site";
 
 const socialLinks = [
-  { href: "https://github.com/oandrefl", icon: Github, label: "GitHub" },
-  { href: "https://www.linkedin.com/in/andrefernando/", icon: Linkedin, label: "LinkedIn" },
-  { href: "mailto:andrefernandolara@hotmail.com", icon: Mail, label: "Email" },
-];
-
-const quickLinks = [
-  { href: "/", label: "Início" },
-  { href: "/about", label: "Sobre" },
-  { href: "/projetos", label: "Projetos" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contato", label: "Contato" },
+  { href: siteConfig.social.github, icon: Github, label: "GitHub" },
+  { href: siteConfig.social.linkedin, icon: Linkedin, label: "LinkedIn" },
+  { href: siteConfig.social.email, icon: Mail, label: "Email" },
 ];
 
 export default function Footer() {
@@ -22,30 +15,26 @@ export default function Footer() {
 
   return (
     <footer className="w-full bg-[#050505] pt-24 pb-12 selection:bg-blue-500/20">
-      {/* px-6 md:px-16 lg:px-28 — mesmo sistema do layout e da nav */}
       <div className="w-full px-6 md:px-16 lg:px-28">
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
 
-          {/* Branding */}
           <div className="space-y-6 lg:col-span-2">
             <div className="flex items-center gap-3">
               <Terminal className="w-5 h-5 text-blue-500/80" />
-              <span className="text-zinc-100 font-bold text-xl tracking-tighter">andre.fl</span>
+              <span className="text-zinc-100 font-bold text-xl tracking-tighter">{siteConfig.shortName}</span>
             </div>
             <p className="text-sm leading-relaxed text-zinc-500 max-w-xs">
               Desenvolvedor focado em interfaces minimalistas e sistemas eficientes.
-              Baseado em <span className="text-zinc-300">Curitiba, Brasil</span>.
             </p>
           </div>
 
-          {/* Navegação */}
           <div className="space-y-6">
             <h4 className="text-[11px] font-mono uppercase tracking-[0.2em] text-zinc-600 font-bold">Navegação</h4>
             <nav>
               <ul className="flex flex-col gap-4">
-                {quickLinks.map((link) => (
-                  <li key={link.label}>
+                {siteConfig.navigation.map((link) => (
+                  <li key={link.href}>
                     <Link
                       href={link.href}
                       className="text-xs font-mono uppercase tracking-widest text-zinc-500 hover:text-zinc-100 transition-colors"
@@ -58,7 +47,6 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Social */}
           <div className="space-y-6">
             <h4 className="text-[11px] font-mono uppercase tracking-[0.2em] text-zinc-600 font-bold">Social</h4>
             <div className="flex gap-4">
@@ -78,14 +66,13 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Linha inferior */}
         <div className="pt-12 border-t border-zinc-900/50 flex flex-col-reverse md:flex-row justify-between items-center gap-8">
           <div className="space-y-2 text-center md:text-left">
             <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.3em]">
-              © {currentYear} Andre Fernando — All Rights Reserved
+              © {currentYear} {siteConfig.author.name} — All Rights Reserved
             </p>
             <p className="text-[9px] font-mono text-zinc-700 uppercase tracking-widest">
-              Curitiba // PR // 25.4411° S, 49.2768° W
+              {siteConfig.location} // {siteConfig.coordinates}
             </p>
           </div>
 

@@ -1,7 +1,15 @@
 import type { Metadata, Viewport } from "next";
+import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "./components/Navigation";
 import Footer from "./components/FooterSection";
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 
 export const viewport: Viewport = {
@@ -29,7 +37,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className="scroll-smooth">
+    <html lang="pt-BR" className={`scroll-smooth ${jetbrainsMono.variable}`}>
       <body className="bg-[#050505] text-zinc-400 antialiased min-h-screen flex flex-col overflow-x-hidden">
         <Navigation />
 
