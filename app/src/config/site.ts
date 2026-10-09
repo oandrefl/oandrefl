@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: "andre.fl",
   url: "https://oandrefl.vercel.app",
   description:
-    "Desenvolvedor Full-Stack focado em criar experiências digitais eficientes e minimalistas.",
+    "Portfólio de André Fernando, técnico de audiovisual em Curitiba. Operação de áudio, vídeo, apresentações, painéis de LED e suporte de TI.",
   location: "Curitiba, Brasil",
   coordinates: "25.4411° S, 49.2768° W",
   author: {
@@ -26,11 +26,18 @@ export const siteConfig = {
   formspreeEndpoint: "https://formspree.io/f/xgvzakje",
   seo: {
     keywords: [
-      "Desenvolvedor",
-      "Full-Stack",
-      "Software Engineer",
-      "Andre Fernando",
-      "Portfolio",
+      "André Fernando",
+      "Técnico de Audiovisual",
+      "Operação de áudio",
+      "Eventos corporativos",
+      "Resolume",
+      "Painéis de LED",
+      "PowerPoint",
+      "OBS Studio",
+      "vMix",
+      "Suporte de TI",
+      "Desenvolvimento web",
+      "Curitiba",
     ],
     twitterHandle: "@oandrefl",
   },
