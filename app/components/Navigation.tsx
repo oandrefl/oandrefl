@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Menu, X, Terminal } from "lucide-react";
+import { Menu, X, AudioLines } from "lucide-react";
 import { siteConfig } from "@/app/src/config/site";
 
 export function Navigation() {
@@ -39,7 +39,7 @@ export function Navigation() {
       <div className="w-full px-6 md:px-16 lg:px-28 h-full flex items-center justify-between">
 
         <Link href="/" className="flex items-center gap-2 group">
-          <Terminal className={`w-5 h-5 transition-colors duration-300 ${scrolled ? "text-blue-500" : "text-zinc-500"}`} />
+          <AudioLines className={`w-5 h-5 transition-colors duration-300 ${scrolled ? "text-blue-500" : "text-zinc-500"}`} />
           <span className="text-zinc-100 font-medium tracking-tighter text-lg">{siteConfig.shortName}</span>
         </Link>
 
