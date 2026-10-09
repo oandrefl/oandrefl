@@ -101,7 +101,7 @@ export default function About() {
                 Andre Fernando
               </h1>
               <p className="text-base font-mono text-blue-500">
-                &gt; Junior Developer <span className="animate-pulse">_</span>
+                &gt; Técnico de Audiovisual <span className="animate-pulse">_</span>
               </p>
             </div>
 
