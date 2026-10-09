@@ -2,70 +2,75 @@
   "experiences": [
     {
       "id": 1,
-      "title": "Analista de Suporte N2 (Unimed Curitiba)",
-      "company": "Quality Digital S.A",
-      "period": "2022 — 2025",
-      "description": "Responsável pelo suporte especializado e administração de usuários via Active Directory. Aumentei em 80% a eficiência das instalações remotas através da otimização de ferramentas de acesso.",
+      "title": "Técnico de Audiovisual (AV Technician)",
+      "company": "Hoffmann",
+      "period": "Jun 2026 — Atual",
+      "description": "Atuação na operação técnica de eventos corporativos de médio e grande porte, em espaços como o Radisson e outros locais. Trabalho com mesas e sistemas de áudio, apresentações e projeção, conteúdo para painéis de LED com Resolume, iluminação DMX e montagem de palco, cabeamento e cenografia. Também apoio a sinalização digital, infraestrutura de rede e resolução de problemas técnicos durante os eventos.",
       "highlights": [
-        "Windows",
-        "Active Directory",
-        "ITSM",
-        "Trauma Zero"
-      ],
-      "current": false
-    },
-    {
-      "id": 2,
-      "title": "Técnico de Som e Mídia (Voluntário)",
-      "company": "IEADC Vila Verde / UMADC",
-      "period": "2020 — Atual",
-      "description": "Operação de sistemas de áudio e vídeo para eventos e transmissões ao vivo. Garanto que todo o backstage tecnológico e multimídia funcione sem falhas.",
-      "highlights": [
-        "Áudio & Vídeo",
-        "Transmissão ao Vivo",
-        "Infraestrutura"
+        "Operação de áudio",
+        "Resolume e painéis de LED",
+        "PowerPoint e projeção",
+        "Iluminação DMX",
+        "Montagem e cabeamento",
+        "Redes e suporte técnico"
       ],
       "current": true
     },
     {
-      "id": 3,
-      "title": "Assistente Administrativo (ExxonMobil GBC)",
-      "company": "CBRE GWS",
-      "period": "2020 — 2022",
-      "description": "Gestão de processos administrativos, documentos protocolados e suporte à comunicação interna em ambiente corporativo dinâmico",
+      "id": 2,
+      "title": "Analista de Suporte de TI",
+      "company": "Quality Digital S.A. — Unimed Curitiba",
+      "period": "Jul 2022 — Mai 2025",
+      "description": "Suporte técnico N1 e N2 para colaboradores e médicos cooperados, presencial e remoto. Atendimento de chamados pelo Cherwell, administração de usuários e acessos, suporte a Windows, Microsoft 365, equipamentos e rede. Ajudei a melhorar o processo de instalações remotas com o Trauma Zero e documentei procedimentos para facilitar o atendimento.",
       "highlights": [
-        "Gestão de Documentos",
+        "Suporte N1/N2",
+        "Cherwell",
+        "Active Directory",
+        "Microsoft 365",
+        "Trauma Zero",
+        "Documentação técnica"
+      ],
+      "current": false
+    },
+    {
+      "id": 3,
+      "title": "Assistente Administrativo",
+      "company": "CBRE — ExxonMobil",
+      "period": "Mar 2020 — Jul 2022",
+      "description": "Apoio a rotinas administrativas, organização de documentos, controles e comunicação interna em ambiente corporativo.",
+      "highlights": [
+        "Organização",
         "Processos",
-        "Logística"
+        "Rotinas corporativas"
       ],
       "current": false
     },
     {
       "id": 4,
       "title": "Auxiliar Administrativo (Aprendiz)",
-      "company": "Vivante (Contrato ExxonMobil)",
-      "period": "2018 — 2019",
-      "description": "Atuação no suporte operacional e administrativo, sendo responsável pelo controle de estoque, recebimento de notas fiscais e suporte à organização de processos internos.",
+      "company": "Vivante",
+      "period": "Jan 2018 — Mai 2019",
+      "description": "Apoio operacional e administrativo, com controle de materiais, recebimento de notas fiscais e organização de processos internos.",
       "highlights": [
-        "Controle de Estoque",
+        "Controle de materiais",
         "Planilhas",
-        "Processos"
+        "Processos internos"
       ],
       "current": false
     }
   ],
   "skills": [
     {
-      "name": "Desenvolvimento & OS",
-      "items": "React, Next.js, TypeScript, Linux, Windows, OSx"
+      "name": "Audiovisual e eventos",
+      "items": "Operação de áudio, mesas de som, microfones, projeção, PowerPoint, Resolume, painéis de LED, iluminação DMX, OBS Studio, vMix e Holyrics"
     },
     {
-      "name": "Infraestrutura de TI",
-      "items": "Redes TCP/IP, Wi-Fi, Configuração de Roteadores, Active Directory "
+      "name": "TI e infraestrutura",
+      "items": "Suporte N1/N2, Windows, Microsoft 365, Active Directory, redes TCP/IP, Wi-Fi, roteadores, equipamentos e troubleshooting"
     },
     {
-      "name": "Hardware & Multimídia",
-      "items": "Manutenção de Hardware, Operação de Sistemas de Áudio e Vídeo"
+      "name": "Desenvolvimento e automação",
+      "items": "HTML, CSS, JavaScript, React, Next.js, TypeScript, Git, Linux e scripts para automatizar tarefas"
     }
   ]
 }
