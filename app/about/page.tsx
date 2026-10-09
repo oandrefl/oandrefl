@@ -18,10 +18,10 @@ import {
 import data from "@/app/src/data/experiences.json";
 
 const hobbies = [
-  { icon: Music,    label: "Música",   desc: "Ouvir e explorar novos álbuns é parte do ritual de codar." },
-  { icon: Terminal, label: "Terminal", desc: "Scripts, dotfiles e automatizar tudo que parece repetitivo." },
-  { icon: Coffee,   label: "Café",     desc: "Sem café não tem commit. É uma relação séria." },
-  { icon: Gamepad2, label: "Jogos",    desc: "Mais pelos sistemas de jogo do que pela diversão em si." },
+  { icon: Music,    label: "Música",   desc: "Música faz parte da rotina, tanto nos eventos quanto fora deles." },
+  { icon: Terminal, label: "Terminal", desc: "Gosto de entender os equipamentos e resolver problemas técnicos." },
+  { icon: Coffee,   label: "Café",     desc: "Uma pausa entre a montagem, a passagem de som e o próximo evento." },
+  { icon: Gamepad2, label: "Jogos",    desc: "Jogos, filmes e tecnologia nas horas vagas." },
 ];
 
 const socialLinks = [
@@ -106,10 +106,7 @@ export default function About() {
             </div>
 
             <p className="text-base leading-relaxed text-zinc-400 max-w-lg">
-              Comecei na TI pelo suporte técnico — resolvendo problemas no dia a dia,
-              entendendo como as coisas quebram e por quê. Em algum momento, comecei
-              a escrever scripts pra automatizar o que fazia repetido. Daí veio o interesse
-              por desenvolvimento. Hoje curso Gestão de TI e construo projetos nas horas vagas.
+              Atualmente, meu foco está no audiovisual e na operação técnica de eventos corporativos. Trabalho com áudio, vídeo, apresentações, painéis de LED e apoio à estrutura do evento. Minha experiência anterior com suporte de TI me ajuda a lidar com redes, equipamentos e imprevistos com calma. Também continuo estudando desenvolvimento e criando projetos pessoais.
             </p>
 
             <div className="pt-1">
@@ -200,7 +197,7 @@ export default function About() {
         {/* ── ALÉM DO CÓDIGO ────────────────────────────────────────────────── */}
         <section className="space-y-8 pb-8">
           <h2 className="text-[11px] font-mono uppercase tracking-[0.3em] text-zinc-600 font-bold">
-            // Além do código
+            // Fora do trabalho
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
