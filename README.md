@@ -1,52 +1,32 @@
-# oandrefl.vercel.app — Portfólio Pessoal
+# oandrefl audiovisual
 
-Site pessoal e portfólio desenvolvido com Next.js 14 (App Router), TypeScript e TailwindCSS. Em produção.
+Site em Next.js (App Router) com home em painéis e blog em MDX.
 
-🔗 **[oandrefl.vercel.app](https://oandrefl.vercel.app)**
+    npm install
+    npm run dev        # http://localhost:3000
+    npm run build && npm start
 
----
+## Onde mexer
 
-## Sobre o projeto
+- **Seus dados** (e-mail, LinkedIn, GitHub, WhatsApp): `lib/site.js`. WhatsApp vazio esconde o botão.
+- **Textos da home**: `components/Site.js`.
+- **Fotos**: `public/img/`. Troque mantendo os nomes ou ajuste as listas `HERO` e `EVENTOS`.
+- **Logo**: `public/img/logo.png` (e `app/icon.png` para o favicon).
 
-Portfólio pessoal com blog integrado, desenvolvido do zero com foco em performance e organização de código. O conteúdo do blog é escrito em MDX, o que permite componentes React dentro dos posts.
+## Blog
 
-## Stack
+**Dica nova:** crie um arquivo em `content/posts/nome-do-post.mdx`:
 
-- **Framework:** Next.js 14 (App Router)
-- **Linguagem:** TypeScript
-- **Estilização:** TailwindCSS
-- **Conteúdo:** MDX
-- **Deploy:** Vercel
+    ---
+    title: "Título"
+    date: "2026-10-20"
+    excerpt: "Uma linha de resumo."
+    tags: ["Eventos"]
+    ---
 
-## Estrutura
+    Texto aqui, com **markdown** normal.
 
-```
-app/
-├── about/        # Página sobre
-├── blog/         # Blog com posts em MDX
-├── contato/      # Página de contato
-├── projetos/     # Portfólio de projetos
-├── components/   # Componentes reutilizáveis
-└── lib/          # Utilitários
-content/          # Posts do blog em MDX
-public/           # Assets estáticos
-```
+**Link novo (Achados):** adicione um item em `content/links.json` (title, url, note, tag, date).
+Os três links que já estão lá são só de exemplo, troque pelos seus.
 
-## Rodando localmente
-
-```bash
-# Clonar o repositório
-git clone https://github.com/oandrefl/oandrefl.git
-
-# Instalar dependências
-npm install
-
-# Rodar em desenvolvimento
-npm run dev
-```
-
-Acesse `http://localhost:3000`
-
----
-
-Desenvolvido por [Andre Fernando Lara](https://linkedin.com/in/andrefernando)
+Deploy: Vercel, importando o repositório.

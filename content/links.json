@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Resolume: central de suporte",
+    "url": "https://resolume.com/support/",
+    "note": "Manual e tutoriais oficiais do Resolume.",
+    "tag": "Resolume",
+    "date": "2026-10-19"
+  },
+  {
+    "title": "OBS Studio: base de conhecimento",
+    "url": "https://obsproject.com/kb/",
+    "note": "Guias de configuração e solução de problemas do OBS.",
+    "tag": "Streaming",
+    "date": "2026-10-18"
+  },
+  {
+    "title": "vMix",
+    "url": "https://www.vmix.com/",
+    "note": "Site oficial, com downloads e links para a documentação.",
+    "tag": "Streaming",
+    "date": "2026-10-17"
+  }
+]
